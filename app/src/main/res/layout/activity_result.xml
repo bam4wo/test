@@ -18,11 +18,11 @@
         app:layout_constraintTop_toTopOf="parent" >
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/type2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="當月水費:"
+            android:text="@string/extra_monthly"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintEnd_toEndOf="@id/constraintLayout"
             app:layout_constraintStart_toStartOf="@id/constraintLayout"
@@ -37,7 +37,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintEnd_toEndOf="@id/constraintLayout"
             app:layout_constraintStart_toStartOf="@id/constraintLayout"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+            app:layout_constraintTop_toBottomOf="@+id/type2" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView

@@ -14,12 +14,15 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     private TextView ed_month;
     private TextView ed_next;
+    boolean inNext = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ed_month = findViewById(R.id.ed_month);
-        ed_next = findViewById(R.id.ed_next);
+        //ed_next = findViewById(R.id.ed_next);
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,10 +40,21 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        Switch sw = findViewById(R.id.switch1);
+        sw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                inNext = isChecked;
+                TextView type = findViewById(R.id.type);
+                //TextView type2 = findViewById(R.id.type);
+                type.setText(inNext? getText(R.string.extra_nextly): getText(R.string.extra_monthly));
+                //type2.setText(inNext? getText(R.string.extra_nextly): getText(R.string.extra_monthly));
+            }
+        });
     }
     public void enter(View view){
         String month = ed_month.getText().toString();
-        String next =ed_next.getText().toString();
+        //String next =ed_next.getText().toString();
         float fee = 0;
         if (!TextUtils.isEmpty(month)){
             int mon = Integer.parseInt(month);
@@ -61,7 +75,9 @@ public class MainActivity extends AppCompatActivity {
                     .setMessage("費用:"+fee)
                     .setPositiveButton("ok",null)
                     .show();*/
-        }else {
+        }
+        /*
+        else {
             if (!TextUtils.isEmpty(next)) {
                 int nextt = Integer.parseInt(next);
                 if (nextt >= 1 && nextt <= 20) {
@@ -79,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                         .setPositiveButton("ok",null)
                         .show();
             }
-        }
+        }*/
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

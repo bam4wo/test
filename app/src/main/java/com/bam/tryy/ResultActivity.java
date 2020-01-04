@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.TextView;
 
 public class ResultActivity extends AppCompatActivity {
@@ -19,5 +21,6 @@ public class ResultActivity extends AppCompatActivity {
         float fee = intent.getFloatExtra("FEE",DEFAULT_FEE);
         fees = findViewById(R.id.fees);
         fees.setText(fee+"");
+
     }
 }
